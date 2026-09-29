@@ -50,12 +50,23 @@ flowchart LR
 
 **規則：** 個人利用で「自動収集 ◎／○」と判定した情報源だけを、公式 API で組み込む（判定の詳細は[調査結果](../research/2026-09-29-data-source-availability.md)を参照）。
 
-| 区分 | 情報源 | 取り込み方 |
-|---|---|---|
-| 組み込む（投稿） | Hacker News、GitHub Issues、Stack Exchange、X（有料） | 公式 API で自動収集 |
-| 組み込む（統計） | e-Stat | 公式 API で自動収集 |
-| 手動で取り込む | Google Trends（CSV）、PIO-NET 公開統計、CW AI Letter／ランサーズ発注トレンド | ファイルや数値を手動で登録 |
-| 組み込まない | Reddit、App Store、Google Play、G2／Capterra、Yahoo!知恵袋、ランサーズ、クラウドワークス | Deep Research と手動閲覧で扱う |
+| 区分 | 情報源 | 分野（言語） | 取り込み方 |
+|---|---|---|---|
+| **組み込む（投稿）** | Hacker News | 技術者・スタートアップ（英語） | 公式 API |
+| | GitHub Issues | 開発ツール・OSS の利用者（英語中心） | 公式 API |
+| | Stack Exchange | 技術 Q&A が中心。家計・DIY・職場など、生活や仕事のコミュニティもある（英語） | 公式 API |
+| | X | 全分野の一般の声（日本語を含む） | 公式 API（有料） |
+| **組み込む（統計）** | e-Stat | 全業界の公的統計（人口・企業数など。市場規模の把握に使う） | 公式 API |
+| **手動で取り込む** | Google Trends | 全分野の検索需要（国・地域別） | CSV を手動で登録 |
+| | PIO-NET 公開統計 | 消費者トラブル（通販・契約・金融・通信など） | 数値を手動で登録 |
+| | CW AI Letter／ランサーズ発注トレンド | 日本の外注市場（Web 制作・動画・デザインなど） | 数値を手動で登録 |
+| **組み込まない** | Reddit | 全分野の生活・仕事・趣味（英語） | Deep Research・手動閲覧 |
+| | App Store／Google Play | 一般消費者向けアプリ（B2C、国別・多言語） | Deep Research・手動閲覧 |
+| | G2／Capterra | 企業向けソフトウェア（B2B SaaS、英語中心） | Deep Research・手動閲覧 |
+| | Yahoo!知恵袋 | 日本の生活全般の悩み（日本語） | Deep Research・手動閲覧 |
+| | ランサーズ／クラウドワークス | 日本の業務の外注（日本語） | Deep Research・手動閲覧 |
+
+> **分野の偏り：** 自動で数えられる投稿は開発者・技術系が中心で、一般消費者や日本語の声は X だけになる。対策は 7 章を参照。
 
 ### 2.3 既存ツールの扱い
 
